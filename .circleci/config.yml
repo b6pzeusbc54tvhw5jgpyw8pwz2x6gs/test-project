@@ -1,9 +1,10 @@
-version: 2.1
-
-orbs:
-    hello: circleci/hello-build@0.0.7
-
-workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:stable-git
+    working_directory: /root/app
+    steps:
+      - checkout
+      - run: apk update && apk add --update nodejs
+      - run: node --version
