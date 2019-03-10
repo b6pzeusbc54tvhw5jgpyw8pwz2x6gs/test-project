@@ -8,3 +8,4 @@ jobs:
       - checkout
       - run: apk update && apk add --update nodejs
       - run: node --version
+      - run: docker --version
